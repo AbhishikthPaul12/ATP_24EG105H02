@@ -1,0 +1,82 @@
+//Read all users
+GET http://localhost:3000/user-api/users
+
+###
+//Read a user by ID
+GET http://localhost:3000/user-api/users/12
+###//Line break
+
+//Create new user
+POST http://localhost:3000/user-api/users
+Content-Type: application/json
+
+{
+    "id":12,
+    "name":"DEF",
+    "age":20
+}
+
+
+###
+//Update the user
+PUT http://localhost:3000/user-api/users
+Content-Type: application/json
+
+{
+    "id":2,
+    "name":"XYZ",
+    "age":25
+}
+
+
+###
+//Delete the user by ID
+DELETE http://localhost:3000/user-api/users/2
+//1 is the URL parameter
+//POST and PUT request must send the data to the API as a body of the request
+//GET AND DELETE requests don't support body of the request
+//So, these 2 requests can send data through endpoint. 
+
+
+###
+
+//Read all products
+GET http://localhost:3000/product-api/products
+
+###
+
+//Read a product by brand
+GET http://localhost:3000/product-api/products/A
+
+
+###
+
+//Create new product
+POST http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"ABC",
+    "brand":"A",
+    "price":50000
+}
+
+###
+
+//Update a product
+PUT http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"DEF",
+    "brand":"B",
+    "price":70000
+}
+
+###
+
+
+//Delete a product by id
+DELETE http://localhost:3000/product-api/products/2
