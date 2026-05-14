@@ -1,16 +1,30 @@
-# React + Vite
+# Project & Article Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A portfolio-style application for showcasing projects or articles. This app demonstrates high-quality card layouts with detailed author metadata and cover images.
 
-Currently, two official plugins are available:
+## Features
+- **Project Cards**: Beautiful cards featuring high-resolution cover images from Unsplash.
+- **Author Profiles**: Displays author name, date, and avatar for each entry.
+- **Clean Header**: A dedicated header component for page identity.
+- **Flexbox Grid**: Uses flexbox for a dynamic, centered layout of cards.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Framework**: React 19
+- **Build Tool**: Vite 8
+- **Styling**: Tailwind CSS 4
 
-## React Compiler
+## Project Structure
+- `src/App.jsx`: Main container component.
+- `src/components/Header.jsx`: Page title and introduction section.
+- `src/components/Profiles.jsx`: Manager component for the data array and project list.
+- `src/components/Profile.jsx`: Detailed project/article card component.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
