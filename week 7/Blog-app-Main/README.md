@@ -1,111 +1,85 @@
-# Week 7 – MERN Blog Application Development
+# MERN Stack Blog Application
+
+This folder contains a full-stack web application designed for creating, reading, updating, and deleting blog articles with a multi-role user system.
 
 ## Overview
-This folder contains the development of a full-stack Blog Application using the MERN stack. The project focuses on building a complete frontend and backend system along with API integration between the client and server for seamless data communication.
 
-## Topics Covered
-- MERN stack development
-- React frontend development
-- Express.js backend development
-- MongoDB database integration
-- REST API creation
-- API integration
-- Frontend and backend communication
-- CRUD operations
-- React components
-- State management
-- Routing
-- Form handling
-- Dynamic content rendering
+The project is structured into two main components:
+1. **Backend**: A Node.js/Express server with MongoDB integration.
+2. **Frontend**: A modern React/Vite application for the user interface.
 
-## Objectives
-- Build a complete full-stack MERN application
-- Understand frontend-backend integration
-- Learn REST API development and consumption
-- Practice CRUD operations in a real-world project
-- Improve React and backend development skills
-- Understand database-driven web applications
 
-## Technologies Used
-- MongoDB
-- Express.js
-- React.js
-- Node.js
-- JavaScript
-- HTML5
-- CSS3
+## Architecture
 
-## IDE
-- VS Code
+### Backend (Node.js & Express)
+- **Role-Based Access Control**: Admin, Author, and User roles.
+- **RESTful API**: Clean and scalable endpoints for all CRUD operations.
+- **Database**: MongoDB using Mongoose for schema modeling.
+- **Security**: JWT-based authentication and Bcrypt password hashing.
 
-## Features Implemented
-- Blog post creation
-- Blog post retrieval
-- Blog post updating
-- Blog post deletion
-- API-based frontend-backend communication
-- Dynamic rendering of blog content
-- Database storage using MongoDB
-- React routing and component structure
-- Form handling and validation
+### Frontend (React & Vite)
+- **Responsive Design**: Built with Tailwind CSS.
+- **State Management**: Efficient data flow using Zustand.
+- **Dynamic Routing**: Seamless navigation with React Router.
+- **Toast Notifications**: Interactive feedback for user actions.
 
-## Application Architecture
 
-### Frontend
+## Package Highlights
 
-- Built using React.js
-- Handles user interaction and UI rendering
-- Sends API requests to the backend
+### Backend Dependencies
+- `express`, `mongoose`, `jsonwebtoken`, `bcryptjs`, `cloudinary`, `multer`.
 
-### Backend
+### Frontend Dependencies
+- `react`, `react-router`, `zustand`, `axios`, `tailwindcss`, `react-toastify`.
 
-- Built using Node.js and Express.js
-- Handles API routes and server-side logic
-- Connects with MongoDB database
 
-### Database
+## Folder Structure
 
-- MongoDB used for storing blog data
-- Managed using Mongoose schemas and models
+```text
+Blog-app-Main/
+├── Blog-App/          # Node.js/Express Backend
+│   ├── APIs/          # API Route Handlers
+│   ├── models/        # Mongoose Schemas
+│   ├── middlewares/   # Auth & Validation
+│   └── server.js      # Entry Point
+├── Frontend/          # React/Vite Frontend
+│   ├── src/           # Component & Logic
+│   ├── public/        # Static Assets
+│   └── index.html     # Entry Point
+└── README.md          # Project Root Documentation
+```
 
-## How to Run
 
-### Backend Setup
+## Getting Started
 
-# Install dependencies
+### Prerequisites
+- Node.js installed.
+- MongoDB instance (local or Atlas).
 
-npm install
+### Quick Start
 
-# Start the backend server
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd Blog-app-Main
+   ```
 
-node server.js
-    or
-nodemon server.js
+2. **Setup Backend**:
+   ```bash
+   cd Blog-App
+   npm install
+   # Configure .env file
+   npm start
+   ```
 
-### Frontend Setup
+3. **Setup Frontend**:
+   ```bash
+   cd ../Frontend
+   npm install
+   npm run dev
+   ```
 
-# Navigate to the frontend folder
-
-# Install dependencies
-
-npm install
-
-# Start the React application
-
-npm start
-
-## Learning Outcomes
-- Learned full-stack MERN application development
-- Understood API integration between frontend and backend
-- Improved React and Express.js development skills
-- Practiced database operations using MongoDB
-- Gained experience in structuring scalable applications
-- Improved debugging and application testing skills
-
-## Conclusion
-
-Week 7 focused on the complete development of a MERN-based Blog Application, covering frontend development, backend API creation, database integration, and full-stack communication.
 
 ## Author
 
-Abhishikth Paul Ganta
+**Abhishikth Paul Ganta**
