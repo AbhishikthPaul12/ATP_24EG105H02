@@ -6,14 +6,14 @@ This folder contains introductory HTML exercises focused on understanding webpag
 
 ## Folder Structure
 
-### Ques 1 – Basic Webpages (`basic -webpages Ques 1/`)
+### Ques 1 – Basic Webpages 
 
 | File | Description |
 |------|-------------|
 | `webpage.html` | A basic webpage demonstrating paragraphs, headings, bold text, hyperlinks, and an unordered list of items. |
 | `nested-unordered-list.html` | Demonstrates nested unordered lists with categories (Fruits, Vegetables, Cereals, Nuts) and their sub-items. |
 
-### Ques 2 – Home Page (`home-page Ques 2/`)
+### Ques 2 – Home Page 
 
 | File | Description |
 |------|-------------|
