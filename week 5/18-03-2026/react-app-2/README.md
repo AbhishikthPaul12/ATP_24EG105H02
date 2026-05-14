@@ -1,16 +1,31 @@
-# React + Vite
+# User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A membership-style dashboard that displays a list of users in a professional, responsive layout. This app focuses on component composition and layout design.
 
-Currently, two official plugins are available:
+## Features
+- **Member Directory**: A grid of user profile cards with avatars, names, and contact emails.
+- **Navigation & Footer**: Includes global `Navbar` and `Footer` components for a complete app feel.
+- **Responsive Layout**: Designed to work seamlessly across mobile, tablet, and desktop screens.
+- **Consistent Styling**: Built with Tailwind CSS for a cohesive design system.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Framework**: React 19
+- **Build Tool**: Vite 8
+- **Styling**: Tailwind CSS 4
 
-## React Compiler
+## Project Structure
+- `src/App.jsx`: Orchestrates the overall layout (Navbar, UsersList, Footer).
+- `src/components/Navbar.jsx`: Global navigation header.
+- `src/components/UsersList.jsx`: Contains the user data array and maps it to `User` components.
+- `src/components/User.jsx`: Individual user profile card component.
+- `src/components/Footer.jsx`: Global footer section.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
