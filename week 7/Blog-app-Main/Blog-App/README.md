@@ -1,64 +1,78 @@
-Three roles
-1. Author
-Registration, Login, Add, view author articles, edit and delete articles
-2. User
-Registration, Login, View articles, Write comments
-3. Admin
-Login, View Articles, Block and activate user
+# Blog Application Backend
 
-Application building starts with database schema design.
-Two resources identified - User, Article
-Two schemas must be designed
+The backend of the Blog Application is built using **Node.js** and **Express.js**, providing a robust RESTful API for managing users, articles, and roles.
 
-//13-03-2026
-Always follow DRY principle(Do not repeat yourself)
+## Features & Roles
 
-Always do brainstorming and finish deciding requirements. Without proper reqs, we will have endless confusion.
-No application can provide 100% security. Security is built layer-by-layer
+### 1. Author
+- **Registration & Login**: Secure authentication.
+- **Article Management**: Create, view, edit, and delete personal articles.
 
-Don't mix asynchronous and synchronous operations.
-It causes some assumptions and results in errors.
-Delete can only be used on JS Object. We can use toObject method for converting the document to a Javascript object.
+### 2. User
+- **Registration & Login**: Access to the platform.
+- **Engagement**: View articles and write comments.
 
-Login-> Submitting credentials to get token
-Logout-> Deleting the token
-
-Put->Complete replacement
-Patch->Partial replacement
-
-//14-03-26
-xxs- Cross site scripting
-csrf- Cross site resource forgery
+### 3. Admin
+- **System Control**: Login, view all articles.
+- **User Management**: Block or activate user accounts.
 
 
-### Frontend
-Dynamic, responsive user interfaces
-(UI= Web page)
-To open a web page, we need a software called browser
-To create a web page, we need HTML
-To apply styles and responsiveness to the web page, we need CSS
-Dynamic nature can be applied using Javascript
-Website + Dynamic nature=Web application
-Javascript technologies simplifying mordern web applications -> ReactJs/Angular/Vue/NextJS
-React native -> Mobile applications, Electron.js -> Desktop applications
-Angular is a framework whereas ReactJS is a library.(Angular is a frontend JS framework used for large scale applications)
-Medium and small scale applications can be developed by using ReactJS.
-(Pick them based on requirement)
-To overcome CSS disadvantages related to writing long amounts of code, we can use CSS frameworks like Bootstrap and TailwindCSS.
+## Tech Stack & Dependencies
 
-//18-03-2026
-Normally, when we use Vanilla Javascript, we need to specify each and every instruction very clearly. Otherwise, it may fail at a certain point of time. 
-Example:- When we click a heading and we expect the heading text to turn red, we have to specify to JS to first go get the heading, then add an event listener in which we have to add the instructions for font-color change.
+### Core Technologies
+- **Runtime**: Node.js (v18+)
+- **Framework**: Express.js (v5.2.1)
+- **Database**: MongoDB (via Mongoose v9.3.0)
+- **Authentication**: JSON Web Token (JWT) & BcryptJS
 
-This is called imperative programming. It is not much useful because we have write long amounts of code. 
-So, we use either React or Angular as part of declarative programming. It has these instrcutions already. We can just ask it now to apply the red color to the heading and it will do it for us.
+### Full Package List
+| Package | Version | Description |
+| :--- | :--- | :--- |
+| `bcryptjs` | `^3.0.3` | Password hashing and security |
+| `cloudinary` | `^2.9.0` | Image and video management |
+| `cookie-parser` | `^1.4.7` | Parse HTTP request cookies |
+| `cors` | `^2.8.6` | Enable Cross-Origin Resource Sharing |
+| `dotenv` | `^17.3.1` | Environment variable management |
+| `express` | `^5.2.1` | Web framework for Node.js |
+| `jsonwebtoken` | `^9.0.3` | Secure token-based authentication |
+| `mongoose` | `^9.3.0` | MongoDB object modeling |
+| `multer` | `^2.1.1` | Middleware for handling `multipart/form-data` |
+| `nodemon` | `^3.1.14` | Development tool for auto-restarting server |
 
 
-### React JS
-When direct DOM manipulation occurs(no code written in HTML doc but mentioned in JS doc), it still is an expensive process.
-Because everytime we make changes to the JS file, DOM tree always keeps on getting reconstructed.
-DOM tree reconstruction takes time and this affects the performance of the application.
-React isdesigned in such a way that it never touches the actual DOM tree.
-It makes a copy of the DOM tree and makes the changes to this copy.(The copy is called as virtual DOM).
-When user makes any changes to the application, a new virtual DOM is created. It compares this new version to the old version and just adds the changes to the real DOM.
-Hence, today many real-world applications use React for frontend activities. It offers many features without affecting the real DOM, hence making the application performance faster and better user experience can be ensured in this way.
+## Project Structure
+
+- **`server.js`**: Entry point of the application.
+- **`APIs/`**: Contains route handlers and business logic.
+- **`models/`**: Mongoose schemas and database models (User, Article).
+- **`middlewares/`**: Custom middleware for authentication and validation.
+- **`config/`**: Configuration files (Database connection, etc.).
+- **`requestTestFiles/`**: API testing scripts or documentation.
+
+
+## Setup & Installation
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Environment Variables**:
+   Create a `.env` file in the root with the following keys:
+   - `MONGO_URI`
+   - `JWT_SECRET`
+   - `CLOUDINARY_CLOUD_NAME`
+   - `CLOUDINARY_API_KEY`
+   - `CLOUDINARY_API_SECRET`
+
+3. **Start the Server**:
+   ```bash
+   npm start # or nodemon server.js
+   ```
+
+
+##  Development Principles
+- **DRY (Do Not Repeat Yourself)**: Modular code structure.
+- **Brainstorming First**: Requirements decided before implementation to avoid confusion.
+- **Layered Security**: Security implemented at multiple levels (JWT, Bcrypt, Middleware).
+- **Asynchronous Integrity**: Careful handling of async operations to prevent race conditions.
