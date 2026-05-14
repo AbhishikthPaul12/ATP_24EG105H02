@@ -1,16 +1,66 @@
-# React + Vite
+# Blog Application Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive frontend built with **React** and **Vite**, focusing on seamless user experience and efficient state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dynamic UI**: Built with React 19 for high performance.
+- **State Management**: Powered by **Zustand** for lightweight and scalable state handling.
+- **Routing**: Client-side routing using **React Router**.
+- **Form Handling**: Efficient form management with **React Hook Form**.
+- **Styling**: Modern design implemented using **Tailwind CSS**.
+- **Notifications**: Real-time feedback using **React Hot Toast** and **React Toastify**.
 
-## React Compiler
+## Tech Stack & Dependencies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core Technologies
+- **Library**: React 19
+- **Build Tool**: Vite 8
+- **Styling**: Tailwind CSS 4
+- **HTTP Client**: Axios
 
-## Expanding the ESLint configuration
+### Full Package List
+| Package | Version | Description |
+| :--- | :--- | :--- |
+| `react` | `^19.2.4` | Core UI library |
+| `react-dom` | `^19.2.4` | React DOM bindings |
+| `react-router` | `^7.13.2` | Declarative routing |
+| `zustand` | `^5.0.12` | State management |
+| `axios` | `^1.14.0` | Promise-based HTTP client |
+| `tailwindcss` | `^4.2.2` | Utility-first CSS framework |
+| `react-hook-form` | `^7.72.0` | Flexible form validation |
+| `react-hot-toast` | `^2.6.0` | React notifications |
+| `react-toastify` | `^11.0.5` | Easy-to-use toast notifications |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+- **`src/`**: Contains the source code.
+  - **`components/`**: Reusable UI components.
+  - **`pages/`**: Main application views.
+  - **`store/`**: Zustand state stores.
+  - **`hooks/`**: Custom React hooks.
+  - **`assets/`**: Images, fonts, and global styles.
+- **`public/`**: Static assets.
+- **`index.html`**: The entry point for the browser.
+
+## Setup & Installation
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+## Key Concepts
+- **Declarative Programming**: Focus on what the UI should look like, not how to manipulate the DOM.
+- **Virtual DOM**: High-performance updates by comparing state changes before applying to the real DOM.
+- **Component-Based Architecture**: Modular and reusable UI blocks.
