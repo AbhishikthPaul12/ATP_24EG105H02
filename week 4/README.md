@@ -1,53 +1,41 @@
 # Week 4 – Basic Webpage Creation Using HTML
 
 ## Overview
-This folder contains basic webpage creation exercises developed using HTML. The work focused on understanding the structure of webpages and learning the fundamental building blocks of frontend development.
+This folder contains introductory HTML exercises focused on understanding webpage structure, semantic elements, and fundamental building blocks of frontend development.
+
+
+## Folder Structure
+
+### Ques 1 – Basic Webpages (`basic -webpages Ques 1/`)
+
+| File | Description |
+|------|-------------|
+| `webpage.html` | A basic webpage demonstrating paragraphs, headings, bold text, hyperlinks, and an unordered list of items. |
+| `nested-unordered-list.html` | Demonstrates nested unordered lists with categories (Fruits, Vegetables, Cereals, Nuts) and their sub-items. |
+
+### Ques 2 – Home Page (`home-page Ques 2/`)
+
+| File | Description |
+|------|-------------|
+| `home-page.html` | A themed home page for "Pochi the Cat" featuring headings, paragraphs, embedded images, ordered & unordered lists, external hyperlinks, and a semantic `<footer>` element. |
+
 
 ## Topics Covered
-- HTML basics
-- Webpage structure
-- Headings and paragraphs
-- Lists
-- Tables
-- Forms
-- Hyperlinks
-- Images
-- Semantic HTML tags
-
-## Objectives
-- Understand the basics of HTML
-- Learn how webpages are structured
-- Practice creating static webpages
-- Gain familiarity with HTML tags and elements
-- Build a foundation for frontend development
+- HTML document structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
+- Headings (`<h1>`, `<h2>`) and paragraphs (`<p>`)
+- Text formatting (`<b>`)
+- Ordered and unordered lists (`<ol>`, `<ul>`, `<li>`)
+- Nested lists
+- Hyperlinks (`<a>`)
+- Image embedding (`<img>`)
+- Semantic HTML (`<footer>`, `<hr>`)
 
 ## Technologies Used
 - HTML5
 
-## IDE
-- VS Code
-
-## Features Implemented
-- Simple static webpages
-- Form creation
-- Tables and lists
-- Hyperlinks between pages
-- Image integration
-- Structured webpage layouts
-
 ## How to Run
-1. Open the project folder in VS Code
-2. Open the HTML file in any web browser
-
-## Learning Outcomes
-- Learned the fundamentals of HTML
-- Understood webpage structure and elements
-- Practiced creating static webpages
-- Improved understanding of frontend basics
-- Gained confidence in using HTML tags effectively
-
-## Conclusion
-Week 4 focused on learning the fundamentals of frontend development through basic webpage creation using HTML.
+1. Open the project folder in VS Code.
+2. Open any `.html` file directly in a web browser.
 
 ## Author
 Abhishikth Paul Ganta
