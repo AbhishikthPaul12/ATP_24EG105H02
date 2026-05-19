@@ -1,54 +1,55 @@
 # Blog Application Backend
 
-The backend of the Blog Application is built using **Node.js** and **Express.js**, providing a robust RESTful API for managing users, articles, and roles.
+The backend of the Blog Application is built using **Node.js**, **Express.js**, and **MongoDB/Mongoose**. It provides a robust RESTful API for managing users, articles, and roles.
 
-## Features & Roles
+## Database Models
 
-### 1. Author
-- **Registration & Login**: Secure authentication.
-- **Article Management**: Create, view, edit, and delete personal articles.
+### UserModel
+Represents all registered user profiles on the platform (USER, AUTHOR, and ADMIN).
+- Includes fields for names, email, password (hashed), role, profile image, and active status.
 
-### 2. User
-- **Registration & Login**: Access to the platform.
-- **Engagement**: View articles and write comments.
+### ArticleModel
+Represents articles created by Authors, including a sub-document array for comments.
+- **Comment Schema**: Contains user reference and comment text.
+- **Article Schema**: Contains author reference, title, category, content, comments array, and visibility state toggle.
 
-### 3. Admin
-- **System Control**: Login, view all articles.
-- **User Management**: Block or activate user accounts.
+## JWT Authentication
+Validates JWT stored inside the browser cookie token. It decodes user details and validates their role against the authorized access roles.
+- **Cookie lookup**: Retrieves the token from cookies.
+- **Unauthorized fallback**: Returns 401 if not authenticated.
+- **Forbidden role mismatch**: Returns 403 if unauthorized.
 
+## API Endpoints Summary
+
+### 1. Common Authentication APIs (`/auth`)
+- **POST `/auth/users`**: Registers a USER or AUTHOR. Encrypts password using Bcryptjs.
+- **POST `/auth/login`**: Authenticates credentials, signs JWT, and saves to an HTTP-only secure cookie.
+- **GET `/auth/logout`**: Clears the token cookie.
+- **GET `/auth/check-auth`**: Returns the decoded JWT payload of the active session.
+- **PUT `/auth/password`**: Updates user password after matching current password.
+
+### 2. User APIs (`/user-api`)
+- **GET `/user-api/articles`**: Fetches paginated list of active articles.
+- **GET `/user-api/articles/:id`**: Fetches detail of a single active article.
+- **POST `/user-api/articles/:id/comments`**: Appends a new comment sub-document to the article.
+- **DELETE `/user-api/articles/:articleId/comments/:commentId`**: Deletes a specific comment from the article's list (Owner Only).
+
+### 3. Author APIs (`/author-api`)
+- **POST `/author-api/articles`**: Publishes a new article.
+- **GET `/author-api/articles`**: Returns all articles written by the logged-in author.
+- **PUT `/author-api/articles/:id`**: Edits the specified article.
+- **PATCH `/author-api/articles/:id`**: Toggles article visibility status (soft-delete).
+
+### 4. Admin APIs (`/admin-api`)
+- **GET `/admin-api/users`**: Fetches all registered accounts (excluding passwords).
+- **PATCH `/admin-api/users/:id/status`**: Blocks or unblocks a specific user.
+- **GET `/admin-api/articles`**: Fetches a paginated system-wide view of all articles.
 
 ## Tech Stack & Dependencies
-
-### Core Technologies
-- **Runtime**: Node.js (v18+)
-- **Framework**: Express.js (v5.2.1)
-- **Database**: MongoDB (via Mongoose v9.3.0)
-- **Authentication**: JSON Web Token (JWT) & BcryptJS
-
-### Full Package List
-| Package | Version | Description |
-| :--- | :--- | :--- |
-| `bcryptjs` | `^3.0.3` | Password hashing and security |
-| `cloudinary` | `^2.9.0` | Image and video management |
-| `cookie-parser` | `^1.4.7` | Parse HTTP request cookies |
-| `cors` | `^2.8.6` | Enable Cross-Origin Resource Sharing |
-| `dotenv` | `^17.3.1` | Environment variable management |
-| `express` | `^5.2.1` | Web framework for Node.js |
-| `jsonwebtoken` | `^9.0.3` | Secure token-based authentication |
-| `mongoose` | `^9.3.0` | MongoDB object modeling |
-| `multer` | `^2.1.1` | Middleware for handling `multipart/form-data` |
-| `nodemon` | `^3.1.14` | Development tool for auto-restarting server |
-
-
-## Project Structure
-
-- **`server.js`**: Entry point of the application.
-- **`APIs/`**: Contains route handlers and business logic.
-- **`models/`**: Mongoose schemas and database models (User, Article).
-- **`middlewares/`**: Custom middleware for authentication and validation.
-- **`config/`**: Configuration files (Database connection, etc.).
-- **`requestTestFiles/`**: API testing scripts or documentation.
-
+- **Node.js**, **Express.js**, **MongoDB**, **Mongoose**
+- **JWT** & **BcryptJS** for Authentication/Security
+- **Cloudinary** & **Multer** for media uploads
+- **Cors**, **Dotenv**, **Cookie-Parser**
 
 ## Setup & Installation
 
@@ -69,10 +70,3 @@ The backend of the Blog Application is built using **Node.js** and **Express.js*
    ```bash
    npm start # or nodemon server.js
    ```
-
-
-##  Development Principles
-- **DRY (Do Not Repeat Yourself)**: Modular code structure.
-- **Brainstorming First**: Requirements decided before implementation to avoid confusion.
-- **Layered Security**: Security implemented at multiple levels (JWT, Bcrypt, Middleware).
-- **Asynchronous Integrity**: Careful handling of async operations to prevent race conditions.
