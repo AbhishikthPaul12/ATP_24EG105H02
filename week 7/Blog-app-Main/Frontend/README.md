@@ -1,66 +1,62 @@
 # Blog Application Frontend
 
-A modern, responsive frontend built with **React** and **Vite**, focusing on seamless user experience and efficient state management.
+This is the React client application for the MERN Blog Application, built using Vite, styled with Tailwind CSS, and configured to communicate with the Backend API over HTTP.
 
-## Features
+## Backend Deployment Link Configuration
+The backend server URL is integrated into the frontend client inside the API configuration (e.g., via Axios). Local development overrides are typically done via the `VITE_API_URL` variable in `.env`.
 
-- **Dynamic UI**: Built with React 19 for high performance.
-- **State Management**: Powered by **Zustand** for lightweight and scalable state handling.
-- **Routing**: Client-side routing using **React Router**.
-- **Form Handling**: Efficient form management with **React Hook Form**.
-- **Styling**: Modern design implemented using **Tailwind CSS**.
-- **Notifications**: Real-time feedback using **React Hot Toast** and **React Toastify**.
+## Application Routing and Page Navigation
+Routing is managed using `react-router-dom`. The application includes security conditions to guard different routes based on the user's role.
+
+### 1. State Management
+Centralizes the application session states using **Zustand**:
+- **User State**: Authenticated user profile data or null.
+- **Loading State**: Blocks route renderings during session checking.
+- **Auto Session Recovery**: On component mounting, it issues a GET request to verify authentication and recovers the session automatically if valid cookies are found.
+
+### 2. Route Guarding
+A gatekeeper component intercepting page access (Protected Routes):
+- Redirects unlogged users to the Login page.
+- Redirects users whose roles do not match the specified allowed roles to the Home page.
+
+### 3. API Connector
+A custom Axios client instance:
+- Automatically targets the backend URL from environment variables.
+- Configured with `withCredentials: true` to enforce browser storage of HTTP-only JWT cookies across requests.
+
+## Page Outlines
+- **Home**: Dynamic landing page featuring clean navigation layouts.
+- **Login**: Form card that captures user inputs and logs them in.
+- **Register**: Handles registration for USER and AUTHOR roles.
+- **Article Feed**: Displays active articles in a paginated list.
+- **Article Detail**: Renders individual article content, alongside comments with submit forms and self-owned delete buttons.
+- **Author Dashboard**: Console for creating new articles, editing existing posts, and toggling visibility (active/inactive).
+- **Admin Dashboard**: Console for viewing system analytics stats, toggling active user status, and removing inappropriate articles.
+- **Not Found**: Custom fallback page.
 
 ## Tech Stack & Dependencies
+- **React 19** & **Vite**
+- **Zustand** for lightweight and scalable state management
+- **React Router DOM** for client-side declarative routing
+- **Tailwind CSS** for modern utility-first styling
+- **React Hook Form** for efficient form handling
+- **Axios** for HTTP requests
+- **React Hot Toast** / **React Toastify** for real-time notifications
 
-### Core Technologies
-- **Library**: React 19
-- **Build Tool**: Vite 8
-- **Styling**: Tailwind CSS 4
-- **HTTP Client**: Axios
+## Setup and Execution
 
-### Full Package List
-| Package | Version | Description |
-| :--- | :--- | :--- |
-| `react` | `^19.2.4` | Core UI library |
-| `react-dom` | `^19.2.4` | React DOM bindings |
-| `react-router` | `^7.13.2` | Declarative routing |
-| `zustand` | `^5.0.12` | State management |
-| `axios` | `^1.14.0` | Promise-based HTTP client |
-| `tailwindcss` | `^4.2.2` | Utility-first CSS framework |
-| `react-hook-form` | `^7.72.0` | Flexible form validation |
-| `react-hot-toast` | `^2.6.0` | React notifications |
-| `react-toastify` | `^11.0.5` | Easy-to-use toast notifications |
-
-## Project Structure
-
-- **`src/`**: Contains the source code.
-  - **`components/`**: Reusable UI components.
-  - **`pages/`**: Main application views.
-  - **`store/`**: Zustand state stores.
-  - **`hooks/`**: Custom React hooks.
-  - **`assets/`**: Images, fonts, and global styles.
-- **`public/`**: Static assets.
-- **`index.html`**: The entry point for the browser.
-
-## Setup & Installation
-
-1. **Install Dependencies**:
+1. **Install npm packages**:
    ```bash
    npm install
    ```
 
-2. **Run Development Server**:
+2. **Configure environment variables** in `.env` (optional for local fallback):
+   ```env
+   VITE_API_URL=http://localhost:4000
+   ```
+
+3. **Run Vite development server**:
    ```bash
    npm run dev
    ```
-
-3. **Build for Production**:
-   ```bash
-   npm run build
-   ```
-
-## Key Concepts
-- **Declarative Programming**: Focus on what the UI should look like, not how to manipulate the DOM.
-- **Virtual DOM**: High-performance updates by comparing state changes before applying to the real DOM.
-- **Component-Based Architecture**: Modular and reusable UI blocks.
+   Open `http://localhost:5173` to browse the app.
